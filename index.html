@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,154 +10,213 @@
 
 <body>
 
-  <div id="app">
+<div id="app">
 
-    <!-- HOME -->
-    <section id="home" class="page active">
-      <header class="hero">
-        <div class="logo">🎓</div>
-        <h1>12th PASS QUEST</h1>
-        <p>Your Exam-Focused Board Preparation</p>
-      </header>
+  <!-- HOME -->
+  <section id="home" class="page active">
 
-      <div class="progress-card">
+    <header class="hero">
+      <div class="logo">🎓</div>
+      <h1>12th PASS QUEST</h1>
+      <p>Your Exam-Focused Board Preparation</p>
+    </header>
+
+    <div class="progress-card">
+      <div>
+        <span>Overall Progress</span>
+        <strong id="overallProgress">0%</strong>
+      </div>
+
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+
+      <small>🎯 Target: PASS</small>
+    </div>
+
+    <h2 class="section-title">📚 Your Subjects</h2>
+
+    <div class="subjects">
+
+      <button class="subject-card" onclick="openSubject('Hindi')">
+        <span class="subject-icon">📖</span>
         <div>
-          <span>Overall Progress</span>
-          <strong id="overallProgress">0%</strong>
+          <h3>General Hindi</h3>
+          <p>हिंदी</p>
         </div>
-        <div class="progress-bar">
-          <div id="progressFill"></div>
-        </div>
-        <small>🎯 Target: PASS</small>
-      </div>
+        <span class="arrow">›</span>
+      </button>
 
-      <h2 class="section-title">📚 Your Subjects</h2>
-
-      <div class="subjects">
-
-        <button class="subject-card" onclick="openSubject('Hindi')">
-          <span class="subject-icon">📖</span>
-          <div>
-            <h3>General Hindi</h3>
-            <p>हिंदी</p>
-          </div>
-          <span class="arrow">›</span>
-        </button>
-
-        <button class="subject-card" onclick="openSubject('English')">
-          <span class="subject-icon">🇬🇧</span>
-          <div>
-            <h3>English</h3>
-            <p>अंग्रेज़ी</p>
-          </div>
-          <span class="arrow">›</span>
-        </button>
-
-        <button class="subject-card" onclick="openSubject('Economics')">
-          <span class="subject-icon">💰</span>
-          <div>
-            <h3>Economics</h3>
-            <p>अर्थशास्त्र</p>
-          </div>
-          <span class="arrow">›</span>
-        </button>
-
-        <button class="subject-card" onclick="openSubject('Sociology')">
-          <span class="subject-icon">👥</span>
-          <div>
-            <h3>Sociology</h3>
-            <p>समाजशास्त्र</p>
-          </div>
-          <span class="arrow">›</span>
-        </button>
-
-        <button class="subject-card" onclick="openSubject('Drawing')">
-          <span class="subject-icon">🎨</span>
-          <div>
-            <h3>Drawing Design</h3>
-            <p>चित्रकला</p>
-          </div>
-          <span class="arrow">›</span>
-        </button>
-
-      </div>
-    </section>
-
-
-    <!-- SUBJECT PAGE -->
-    <section id="subjectPage" class="page">
-
-      <header class="page-header">
-        <button class="back-btn" onclick="goBack()">‹</button>
-
+      <button class="subject-card" onclick="openSubject('English')">
+        <span class="subject-icon">🇬🇧</span>
         <div>
-          <h1 id="subjectTitle">Subject</h1>
-          <p id="subjectSubtitle">Exam-focused preparation</p>
+          <h3>English</h3>
+          <p>अंग्रेज़ी</p>
         </div>
-      </header>
+        <span class="arrow">›</span>
+      </button>
 
-      <div class="subject-options">
+      <button class="subject-card" onclick="openSubject('Economics')">
+        <span class="subject-icon">💰</span>
+        <div>
+          <h3>Economics</h3>
+          <p>अर्थशास्त्र</p>
+        </div>
+        <span class="arrow">›</span>
+      </button>
 
-        <button class="feature-card">
-          <span>📚</span>
-          <div>
-            <h3>Chapter Revision</h3>
-            <p>Short summary + Hindi + English + Key Points</p>
-          </div>
-          <b>›</b>
-        </button>
+      <button class="subject-card" onclick="openSubject('Sociology')">
+        <span class="subject-icon">👥</span>
+        <div>
+          <h3>Sociology</h3>
+          <p>समाजशास्त्र</p>
+        </div>
+        <span class="arrow">›</span>
+      </button>
 
-        <button class="feature-card">
-          <span>📄</span>
-          <div>
-            <h3>Previous Year Papers</h3>
-            <p>Real UP Board exam questions</p>
-          </div>
-          <b>›</b>
-        </button>
+      <button class="subject-card" onclick="openSubject('Drawing')">
+        <span class="subject-icon">🎨</span>
+        <div>
+          <h3>Drawing Design</h3>
+          <p>चित्रकला</p>
+        </div>
+        <span class="arrow">›</span>
+      </button>
 
-        <button class="feature-card">
-          <span>📝</span>
-          <div>
-            <h3>Model Papers</h3>
-            <p>Board-style practice papers</p>
-          </div>
-          <b>›</b>
-        </button>
+    </div>
+  </section>
 
-        <button class="feature-card">
-          <span>🧪</span>
-          <div>
-            <h3>Mock Exam</h3>
-            <p>Real exam-style test with timer</p>
-          </div>
-          <b>›</b>
-        </button>
 
-        <button class="feature-card">
-          <span>❌</span>
-          <div>
-            <h3>My Mistakes</h3>
-            <p>Practice questions you got wrong</p>
-          </div>
-          <b>›</b>
-        </button>
+  <!-- SUBJECT PAGE -->
+  <section id="subjectPage" class="page">
 
-        <button class="feature-card">
-          <span>📊</span>
-          <div>
-            <h3>My Progress</h3>
-            <p>Marks, percentage and weak topics</p>
-          </div>
-          <b>›</b>
-        </button>
+    <header class="page-header">
+      <button class="back-btn" onclick="goBack()">‹</button>
 
+      <div>
+        <h1 id="subjectTitle">Subject</h1>
+        <p id="subjectSubtitle">Exam-focused preparation</p>
+      </div>
+    </header>
+
+    <div class="subject-options">
+
+      <button class="feature-card" onclick="openRevision()">
+        <span>📚</span>
+        <div>
+          <h3>Chapter Revision</h3>
+          <p>Short summary + Hindi + English + Key Points</p>
+        </div>
+        <b>›</b>
+      </button>
+
+      <button class="feature-card">
+        <span>📄</span>
+        <div>
+          <h3>Previous Year Papers</h3>
+          <p>Real UP Board exam questions</p>
+        </div>
+        <b>›</b>
+      </button>
+
+      <button class="feature-card">
+        <span>📝</span>
+        <div>
+          <h3>Model Papers</h3>
+          <p>Board-style practice papers</p>
+        </div>
+        <b>›</b>
+      </button>
+
+      <button class="feature-card">
+        <span>🧪</span>
+        <div>
+          <h3>Mock Exam</h3>
+          <p>Real exam-style test with timer</p>
+        </div>
+        <b>›</b>
+      </button>
+
+      <button class="feature-card">
+        <span>❌</span>
+        <div>
+          <h3>My Mistakes</h3>
+          <p>Practice questions you got wrong</p>
+        </div>
+        <b>›</b>
+      </button>
+
+      <button class="feature-card">
+        <span>📊</span>
+        <div>
+          <h3>My Progress</h3>
+          <p>Marks, percentage and weak topics</p>
+        </div>
+        <b>›</b>
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- REVISION PAGE -->
+  <section id="revisionPage" class="page">
+
+    <header class="page-header">
+      <button class="back-btn" onclick="goBack()">‹</button>
+
+      <div>
+        <h1 id="revisionTitle">Chapter Revision</h1>
+        <p>Exam-focused chapter preparation</p>
+      </div>
+    </header>
+
+    <div id="chapterList" class="chapter-list"></div>
+
+  </section>
+
+
+  <!-- CHAPTER DETAIL -->
+  <section id="chapterPage" class="page">
+
+    <header class="page-header">
+      <button class="back-btn" onclick="goBack()">‹</button>
+
+      <div>
+        <h1 id="chapterTitle">Chapter</h1>
+        <p>Quick Revision</p>
+      </div>
+    </header>
+
+    <div class="revision-content">
+
+      <div class="revision-box">
+        <h2>🇬🇧 English Summary</h2>
+        <p id="englishSummary"></p>
       </div>
 
-    </section>
+      <div class="revision-box">
+        <h2>🇮🇳 हिंदी सारांश</h2>
+        <p id="hindiSummary"></p>
+      </div>
 
-  </div>
+      <div class="revision-box">
+        <h2>⭐ Key Points</h2>
+        <ul id="keyPoints"></ul>
+      </div>
 
-  <script src="app.js"></script>
+      <div class="revision-box exam-focus">
+        <h2>🎯 Exam Focus</h2>
+        <p id="examFocus"></p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+
 </body>
 </html>
