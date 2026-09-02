@@ -27,71 +27,81 @@ let currentPage =
 
 
 /* =========================================
-   GENERAL HINDI — CHAPTER DATA
-   Verified syllabus structure will be
-   populated with actual content next.
+   SUBJECT DATA
+
+   Hindi + English meaning together
 ========================================= */
 
 const subjectData = {
 
   Hindi: {
 
-    title: "General Hindi",
+    titleHindi: "सामान्य हिन्दी",
+    titleEnglish: "General Hindi",
 
     chapters: [
 
       {
         id: "hindi-1",
         number: 1,
-        name: "गद्य साहित्य"
+        hindi: "गद्य साहित्य",
+        english: "Prose Literature"
       },
 
       {
         id: "hindi-2",
         number: 2,
-        name: "पद्य साहित्य"
+        hindi: "पद्य साहित्य",
+        english: "Poetry Literature"
       },
 
       {
         id: "hindi-3",
         number: 3,
-        name: "कहानी साहित्य"
+        hindi: "कहानी साहित्य",
+        english: "Short Story Literature"
       },
 
       {
         id: "hindi-4",
         number: 4,
-        name: "खण्ड-काव्य"
+        hindi: "खण्ड-काव्य",
+        english: "Narrative / Sectional Poetry"
       },
 
       {
         id: "hindi-5",
         number: 5,
-        name: "संस्कृत खण्ड"
+        hindi: "संस्कृत खण्ड",
+        english: "Sanskrit Section"
       },
 
       {
         id: "hindi-6",
         number: 6,
-        name: "निबन्ध लेखन"
+        hindi: "निबन्ध लेखन",
+        english: "Essay Writing"
       },
 
       {
         id: "hindi-7",
         number: 7,
-        name: "पत्र लेखन"
+        hindi: "पत्र लेखन",
+        english: "Letter Writing"
       },
 
       {
         id: "hindi-8",
         number: 8,
-        name: "व्याकरण"
+        hindi: "व्याकरण",
+        english: "Grammar"
       },
 
       {
         id: "hindi-9",
         number: 9,
-        name: "अपठित गद्यांश एवं पद्यांश"
+        hindi: "अपठित गद्यांश एवं पद्यांश",
+        english: "Unseen Prose & Poetry Passages"
       }
 
     ]
@@ -158,7 +168,7 @@ function openSubject(subject, fromBack = false) {
   const subtitles = {
 
     Hindi:
-      "General Hindi • Exam Preparation",
+      "सामान्य हिन्दी • General Hindi • Exam Preparation",
 
     English:
       "English • Exam Preparation",
@@ -252,7 +262,9 @@ function openRevision() {
 function renderChapterList() {
 
   const list =
-    document.getElementById("chapterList");
+    document.getElementById(
+      "chapterList"
+    );
 
 
   if (!list) return;
@@ -262,10 +274,9 @@ function renderChapterList() {
     subjectData[currentSubject];
 
 
-  /*
-     Subjects whose chapter data has not
-     been added yet.
-  */
+  /* -----------------------------------------
+     Subjects not added yet
+  ----------------------------------------- */
 
   if (!data) {
 
@@ -273,7 +284,9 @@ function renderChapterList() {
 
       <div class="revision-box">
 
-        <h2>📚 ${currentSubject} Revision</h2>
+        <h2>
+          ${currentSubject}
+        </h2>
 
         <p>
           Chapter-wise revision is being
@@ -286,6 +299,7 @@ function renderChapterList() {
     `;
 
     return;
+
   }
 
 
@@ -293,7 +307,13 @@ function renderChapterList() {
 
     <div class="revision-box">
 
-      <h2>📚 ${data.title}</h2>
+      <h2>
+        📚 ${data.titleHindi}
+      </h2>
+
+      <p>
+        ${data.titleEnglish}
+      </p>
 
       <p>
         Select a chapter to start
@@ -301,6 +321,7 @@ function renderChapterList() {
       </p>
 
     </div>
+
 
     <div class="chapter-grid">
 
@@ -315,25 +336,34 @@ function renderChapterList() {
         class="chapter-card"
         onclick="openChapter(
           '${chapter.id}',
-          '${chapter.name.replace(/'/g, "\\'")}'
+          '${chapter.hindi.replace(/'/g, "\\'")}',
+          '${chapter.english.replace(/'/g, "\\'")}'
         )"
       >
 
         <div class="chapter-number">
+
           ${chapter.number}
+
         </div>
+
 
         <div class="chapter-info">
 
           <h3>
-            ${chapter.name}
+            ${chapter.hindi}
           </h3>
 
           <p>
-            📖 Revision • 🎯 Exam Focus
+            ${chapter.english}
           </p>
 
+          <small>
+            📖 Revision • 🎯 Exam Focus
+          </small>
+
         </div>
+
 
         <div class="chapter-arrow">
           →
@@ -364,7 +394,8 @@ function renderChapterList() {
 
 function openChapter(
   chapterId,
-  chapterName
+  hindiName,
+  englishName
 ) {
 
   currentChapter = chapterId;
@@ -376,27 +407,52 @@ function openChapter(
   );
 
 
+  /*
+     Hindi title
+  */
+
   document.getElementById(
     "chapterTitle"
   ).textContent =
-    chapterName;
+    hindiName;
 
 
   /*
-     Actual chapter content will be
-     inserted here from verified material.
+     English meaning
+     Displayed inside the page
+     if an English title element exists.
+  */
+
+  const chapterEnglish =
+    document.getElementById(
+      "chapterEnglishTitle"
+    );
+
+
+  if (chapterEnglish) {
+
+    chapterEnglish.textContent =
+      englishName;
+
+  }
+
+
+  /*
+     Temporary content area.
+     Actual verified lesson content
+     will be added next.
   */
 
   document.getElementById(
     "englishSummary"
   ).textContent =
-    "Chapter summary will be added using verified UP Board study material.";
+    "A short, exam-focused English summary will be added from verified UP Board study material.";
 
 
   document.getElementById(
     "hindiSummary"
   ).textContent =
-    "सत्यापित UP Board अध्ययन सामग्री के आधार पर इस अध्याय का संक्षिप्त सारांश यहाँ जोड़ा जाएगा।";
+    "सत्यापित UP Board अध्ययन सामग्री के आधार पर इस अध्याय का छोटा और परीक्षा-केंद्रित सारांश यहाँ जोड़ा जाएगा।";
 
 
   document.getElementById(
@@ -404,15 +460,18 @@ function openChapter(
   ).innerHTML = `
 
     <li>
-      Important concepts will be added.
+      Important concepts
+      (महत्वपूर्ण अवधारणाएँ)
     </li>
 
     <li>
-      Board-focused points will be added.
+      Board-focused points
+      (बोर्ड परीक्षा के महत्वपूर्ण बिंदु)
     </li>
 
     <li>
-      Important exam concepts will be highlighted.
+      Important exam concepts
+      (परीक्षा के लिए महत्वपूर्ण बातें)
     </li>
 
   `;
@@ -421,7 +480,7 @@ function openChapter(
   document.getElementById(
     "examFocus"
   ).textContent =
-    "Previous-year and model-paper based exam focus will be added here.";
+    "Previous-year questions and official model-paper based exam focus will be added here.";
 
 
   showPage("chapter");
@@ -600,14 +659,32 @@ function restorePage() {
     savedChapter;
 
 
-  /* -----------------------------
+  /* -----------------------------------------
      CHAPTER
-  ----------------------------- */
+  ----------------------------------------- */
 
   if (
     savedPage === "chapter" &&
     savedSubject
   ) {
+
+    const data =
+      subjectData[savedSubject];
+
+
+    let chapter = null;
+
+
+    if (data) {
+
+      chapter =
+        data.chapters.find(
+          item =>
+            item.id === savedChapter
+        );
+
+    }
+
 
     document.getElementById(
       "subjectTitle"
@@ -618,19 +695,37 @@ function restorePage() {
     document.getElementById(
       "chapterTitle"
     ).textContent =
-      "Chapter";
+      chapter
+        ? chapter.hindi
+        : "Chapter";
+
+
+    const chapterEnglish =
+      document.getElementById(
+        "chapterEnglishTitle"
+      );
+
+
+    if (chapterEnglish) {
+
+      chapterEnglish.textContent =
+        chapter
+          ? chapter.english
+          : "";
+
+    }
 
 
     document.getElementById(
       "englishSummary"
     ).textContent =
-      "Chapter summary will be restored here.";
+      "A short, exam-focused English summary will be added from verified UP Board study material.";
 
 
     document.getElementById(
       "hindiSummary"
     ).textContent =
-      "अध्याय का सारांश यहाँ दिखाई देगा।";
+      "सत्यापित UP Board अध्ययन सामग्री के आधार पर सारांश यहाँ जोड़ा जाएगा।";
 
 
     document.getElementById(
@@ -638,15 +733,18 @@ function restorePage() {
     ).innerHTML = `
 
       <li>
-        Important concepts will be shown here.
+        Important concepts
+        (महत्वपूर्ण अवधारणाएँ)
       </li>
 
       <li>
-        Board-focused points will be shown here.
+        Board-focused points
+        (बोर्ड परीक्षा के महत्वपूर्ण बिंदु)
       </li>
 
       <li>
-        Important exam concepts will be shown here.
+        Important exam concepts
+        (महत्वपूर्ण परीक्षा बिंदु)
       </li>
 
     `;
@@ -655,7 +753,7 @@ function restorePage() {
     document.getElementById(
       "examFocus"
     ).textContent =
-      "Exam-focused material will be shown here.";
+      "Exam-focused material will be added here.";
 
 
     showPage(
@@ -669,9 +767,9 @@ function restorePage() {
   }
 
 
-  /* -----------------------------
+  /* -----------------------------------------
      REVISION
-  ----------------------------- */
+  ----------------------------------------- */
 
   if (
     savedPage === "revision" &&
@@ -698,9 +796,9 @@ function restorePage() {
   }
 
 
-  /* -----------------------------
+  /* -----------------------------------------
      SUBJECT
-  ----------------------------- */
+  ----------------------------------------- */
 
   if (
     savedPage === "subject" &&
@@ -718,9 +816,9 @@ function restorePage() {
   }
 
 
-  /* -----------------------------
+  /* -----------------------------------------
      HOME
-  ----------------------------- */
+  ----------------------------------------- */
 
   showPage(
     "home",
