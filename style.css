@@ -1,1 +1,291 @@
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+#app {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  min-height: 100vh;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 20px 16px 40px;
+  animation: pageIn 0.25s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 35px 10px 25px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border-radius: 22px;
+  font-size: 38px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.hero h1 {
+  margin-top: 18px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.hero p {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* PROGRESS */
+
+.progress-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 28px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.progress-card > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-card span {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.progress-card strong {
+  font-size: 22px;
+  color: var(--primary);
+}
+
+.progress-bar {
+  height: 9px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 13px 0;
+}
+
+#progressFill {
+  width: 0%;
+  height: 100%;
+  background: var(--primary);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.progress-card small {
+  color: var(--muted);
+}
+
+/* SECTION */
+
+.section-title {
+  font-size: 19px;
+  margin-bottom: 13px;
+}
+
+/* SUBJECT CARDS */
+
+.subjects,
+.subject-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.subject-card,
+.feature-card {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.035);
+}
+
+.subject-card:hover,
+.feature-card:hover {
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+}
+
+.subject-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-right: 14px;
+}
+
+.subject-card h3,
+.feature-card h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.subject-card p,
+.feature-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 28px;
+  color: #9ca3af;
+}
+
+/* HEADER */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding-top: 5px;
+}
+
+.back-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-size: 31px;
+  line-height: 1;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-header h1 {
+  font-size: 22px;
+}
+
+.page-header p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* FEATURE CARDS */
+
+.feature-card {
+  gap: 14px;
+}
+
+.feature-card > span {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 14px;
+  font-size: 23px;
+}
+
+.feature-card div {
+  flex: 1;
+}
+
+.feature-card b {
+  color: #9ca3af;
+  font-size: 25px;
+}
+
+/* MOBILE */
+
+@media (max-width: 420px) {
+  .page {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .hero h1 {
+    font-size: 25px;
+  }
+
+  .subject-card,
+  .feature-card {
+    padding: 14px;
+  }
+}
