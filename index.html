@@ -1,1 +1,164 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>12th PASS QUEST</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <header class="hero">
+        <div class="logo">🎓</div>
+        <h1>12th PASS QUEST</h1>
+        <p>Your Exam-Focused Board Preparation</p>
+      </header>
+
+      <div class="progress-card">
+        <div>
+          <span>Overall Progress</span>
+          <strong id="overallProgress">0%</strong>
+        </div>
+        <div class="progress-bar">
+          <div id="progressFill"></div>
+        </div>
+        <small>🎯 Target: PASS</small>
+      </div>
+
+      <h2 class="section-title">📚 Your Subjects</h2>
+
+      <div class="subjects">
+
+        <button class="subject-card" onclick="openSubject('Hindi')">
+          <span class="subject-icon">📖</span>
+          <div>
+            <h3>General Hindi</h3>
+            <p>हिंदी</p>
+          </div>
+          <span class="arrow">›</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('English')">
+          <span class="subject-icon">🇬🇧</span>
+          <div>
+            <h3>English</h3>
+            <p>अंग्रेज़ी</p>
+          </div>
+          <span class="arrow">›</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('Economics')">
+          <span class="subject-icon">💰</span>
+          <div>
+            <h3>Economics</h3>
+            <p>अर्थशास्त्र</p>
+          </div>
+          <span class="arrow">›</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('Sociology')">
+          <span class="subject-icon">👥</span>
+          <div>
+            <h3>Sociology</h3>
+            <p>समाजशास्त्र</p>
+          </div>
+          <span class="arrow">›</span>
+        </button>
+
+        <button class="subject-card" onclick="openSubject('Drawing')">
+          <span class="subject-icon">🎨</span>
+          <div>
+            <h3>Drawing Design</h3>
+            <p>चित्रकला</p>
+          </div>
+          <span class="arrow">›</span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- SUBJECT PAGE -->
+    <section id="subjectPage" class="page">
+
+      <header class="page-header">
+        <button class="back-btn" onclick="goBack()">‹</button>
+
+        <div>
+          <h1 id="subjectTitle">Subject</h1>
+          <p id="subjectSubtitle">Exam-focused preparation</p>
+        </div>
+      </header>
+
+      <div class="subject-options">
+
+        <button class="feature-card">
+          <span>📚</span>
+          <div>
+            <h3>Chapter Revision</h3>
+            <p>Short summary + Hindi + English + Key Points</p>
+          </div>
+          <b>›</b>
+        </button>
+
+        <button class="feature-card">
+          <span>📄</span>
+          <div>
+            <h3>Previous Year Papers</h3>
+            <p>Real UP Board exam questions</p>
+          </div>
+          <b>›</b>
+        </button>
+
+        <button class="feature-card">
+          <span>📝</span>
+          <div>
+            <h3>Model Papers</h3>
+            <p>Board-style practice papers</p>
+          </div>
+          <b>›</b>
+        </button>
+
+        <button class="feature-card">
+          <span>🧪</span>
+          <div>
+            <h3>Mock Exam</h3>
+            <p>Real exam-style test with timer</p>
+          </div>
+          <b>›</b>
+        </button>
+
+        <button class="feature-card">
+          <span>❌</span>
+          <div>
+            <h3>My Mistakes</h3>
+            <p>Practice questions you got wrong</p>
+          </div>
+          <b>›</b>
+        </button>
+
+        <button class="feature-card">
+          <span>📊</span>
+          <div>
+            <h3>My Progress</h3>
+            <p>Marks, percentage and weak topics</p>
+          </div>
+          <b>›</b>
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
