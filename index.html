@@ -2,221 +2,293 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#111827">
+  <meta name="description" content="12th PASS QUEST - UP Board Class 12 Exam Preparation">
   <title>12th PASS QUEST</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="app">
+  <div id="app">
 
-  <!-- HOME -->
-  <section id="home" class="page active">
+    <!-- HOME -->
+    <section id="home" class="page active">
 
-    <header class="hero">
-      <div class="logo">🎓</div>
-      <h1>12th PASS QUEST</h1>
-      <p>Your Exam-Focused Board Preparation</p>
-    </header>
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo">🎓</div>
+          <div>
+            <h1>12th PASS QUEST</h1>
+            <p>Your Exam-Focused Board Preparation</p>
+          </div>
+        </div>
 
-    <div class="progress-card">
-      <div>
-        <span>Overall Progress</span>
-        <strong id="overallProgress">0%</strong>
+        <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">🌙</button>
+      </header>
+
+      <main class="container">
+
+        <section class="hero">
+          <div>
+            <span class="eyebrow">UP BOARD • CLASS 12</span>
+            <h2>Target: <strong>PASS 🎯</strong></h2>
+            <p>
+              Study smart. Practice more. Track your preparation.
+            </p>
+          </div>
+
+          <div class="overall-progress">
+            <div class="progress-ring">
+              <span id="overallPercent">0%</span>
+            </div>
+            <small>Overall Progress</small>
+          </div>
+        </section>
+
+        <section class="continue-card" id="continueCard">
+          <div>
+            <span>CONTINUE</span>
+            <h3 id="continueTitle">Start your preparation</h3>
+            <p id="continueText">Your progress will appear here.</p>
+          </div>
+          <button id="continueBtn" class="primary-btn">Continue →</button>
+        </section>
+
+        <div class="section-heading">
+          <h2>📚 Your Subjects</h2>
+          <span>5 Subjects</span>
+        </div>
+
+        <section id="subjectGrid" class="subject-grid"></section>
+
+        <div class="section-heading">
+          <h2>⚡ Quick Access</h2>
+        </div>
+
+        <section class="feature-grid">
+
+          <button class="feature-card" data-feature="mistakes">
+            <span class="feature-icon">❌</span>
+            <strong>My Mistakes</strong>
+            <small>Wrong questions</small>
+          </button>
+
+          <button class="feature-card" data-feature="progress">
+            <span class="feature-icon">📊</span>
+            <strong>My Progress</strong>
+            <small>Track preparation</small>
+          </button>
+
+          <button class="feature-card" data-feature="mock">
+            <span class="feature-icon">⏱️</span>
+            <strong>Mock Exam</strong>
+            <small>Practice test</small>
+          </button>
+
+          <button class="feature-card" data-feature="papers">
+            <span class="feature-icon">📄</span>
+            <strong>Board Papers</strong>
+            <small>PYQ & resources</small>
+          </button>
+
+        </section>
+
+        <section class="pass-card">
+          <div class="pass-icon">🎯</div>
+          <div>
+            <h3>PASS Strategy</h3>
+            <p>
+              First complete important topics, then practice questions,
+              then attempt mock exams.
+            </p>
+          </div>
+        </section>
+
+      </main>
+    </section>
+
+
+    <!-- SUBJECT -->
+    <section id="subjectPage" class="page">
+
+      <header class="sub-header">
+        <button class="back-btn" data-back>←</button>
+
+        <div>
+          <span id="subjectCode"></span>
+          <h1 id="subjectTitle"></h1>
+        </div>
+
+        <button id="subjectMenuBtn" class="icon-btn">⋮</button>
+      </header>
+
+      <main class="container">
+
+        <section class="subject-hero">
+          <div class="big-subject-icon" id="subjectIcon"></div>
+
+          <div>
+            <span id="subjectHindi"></span>
+            <h2 id="subjectHeroTitle"></h2>
+            <p id="subjectDescription"></p>
+          </div>
+        </section>
+
+        <section class="subject-stat-grid">
+          <div class="mini-stat">
+            <strong id="chapterCount">0</strong>
+            <span>Chapters</span>
+          </div>
+
+          <div class="mini-stat">
+            <strong id="subjectProgress">0%</strong>
+            <span>Revision</span>
+          </div>
+
+          <div class="mini-stat">
+            <strong id="subjectScore">--</strong>
+            <span>Best Mock</span>
+          </div>
+        </section>
+
+        <section class="module-grid">
+
+          <button class="module-card" data-module="revision">
+            <span>📖</span>
+            <strong>Chapter Revision</strong>
+            <small>Short notes + exam points</small>
+          </button>
+
+          <button class="module-card" data-module="pyq">
+            <span>📝</span>
+            <strong>Previous Year Papers</strong>
+            <small>Board practice</small>
+          </button>
+
+          <button class="module-card" data-module="model">
+            <span>📄</span>
+            <strong>Model Papers</strong>
+            <small>Official resources</small>
+          </button>
+
+          <button class="module-card" data-module="mock">
+            <span>⏱️</span>
+            <strong>Mock Exam</strong>
+            <small>Timed practice</small>
+          </button>
+
+          <button class="module-card" data-module="mistakes">
+            <span>❌</span>
+            <strong>My Mistakes</strong>
+            <small>Revise wrong answers</small>
+          </button>
+
+          <button class="module-card" data-module="progress">
+            <span>📊</span>
+            <strong>My Progress</strong>
+            <small>Performance</small>
+          </button>
+
+        </section>
+
+        <section class="chapter-preview">
+          <div class="section-heading">
+            <h2>📚 Chapters</h2>
+            <span id="chapterPreviewCount"></span>
+          </div>
+
+          <div id="chapterPreviewList"></div>
+        </section>
+
+      </main>
+    </section>
+
+
+    <!-- REVISION -->
+    <section id="revisionPage" class="page">
+
+      <header class="sub-header">
+        <button class="back-btn" data-back>←</button>
+
+        <div>
+          <span>REVISION</span>
+          <h1 id="revisionSubjectTitle">Revision</h1>
+        </div>
+
+        <button id="revisionThemeBtn" class="icon-btn">🌙</button>
+      </header>
+
+      <main class="container">
+
+        <div id="revisionContent"></div>
+
+      </main>
+    </section>
+
+
+    <!-- CHAPTER -->
+    <section id="chapterPage" class="page">
+
+      <header class="sub-header">
+        <button class="back-btn" data-back>←</button>
+
+        <div>
+          <span>CHAPTER</span>
+          <h1 id="chapterTitle">Chapter</h1>
+        </div>
+
+        <button id="chapterDoneBtn" class="done-btn">✓ Done</button>
+      </header>
+
+      <main class="container">
+
+        <div id="chapterContent"></div>
+
+      </main>
+    </section>
+
+
+    <!-- DYNAMIC APP SCREEN -->
+    <section id="dynamicPage" class="page">
+
+      <header class="sub-header">
+        <button id="dynamicBackBtn" class="back-btn">←</button>
+
+        <div>
+          <span id="dynamicEyebrow">12th PASS QUEST</span>
+          <h1 id="dynamicTitle">Page</h1>
+        </div>
+
+        <button id="dynamicActionBtn" class="icon-btn hidden">⋮</button>
+      </header>
+
+      <main class="container">
+        <div id="dynamicContent"></div>
+      </main>
+
+    </section>
+
+
+    <!-- MODAL -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+
+      <div class="modal-box">
+
+        <button id="modalClose" class="modal-close">×</button>
+
+        <div id="modalContent"></div>
+
       </div>
-
-      <div class="progress-bar">
-        <div id="progressFill"></div>
-      </div>
-
-      <small>🎯 Target: PASS</small>
     </div>
 
-    <h2 class="section-title">📚 Your Subjects</h2>
+    <div id="toast"></div>
 
-    <div class="subjects">
+  </div>
 
-      <button class="subject-card" onclick="openSubject('Hindi')">
-        <span class="subject-icon">📖</span>
-        <div>
-          <h3>General Hindi</h3>
-          <p>हिंदी</p>
-        </div>
-        <span class="arrow">›</span>
-      </button>
-
-      <button class="subject-card" onclick="openSubject('English')">
-        <span class="subject-icon">🇬🇧</span>
-        <div>
-          <h3>English</h3>
-          <p>अंग्रेज़ी</p>
-        </div>
-        <span class="arrow">›</span>
-      </button>
-
-      <button class="subject-card" onclick="openSubject('Economics')">
-        <span class="subject-icon">💰</span>
-        <div>
-          <h3>Economics</h3>
-          <p>अर्थशास्त्र</p>
-        </div>
-        <span class="arrow">›</span>
-      </button>
-
-      <button class="subject-card" onclick="openSubject('Sociology')">
-        <span class="subject-icon">👥</span>
-        <div>
-          <h3>Sociology</h3>
-          <p>समाजशास्त्र</p>
-        </div>
-        <span class="arrow">›</span>
-      </button>
-
-      <button class="subject-card" onclick="openSubject('Drawing')">
-        <span class="subject-icon">🎨</span>
-        <div>
-          <h3>Drawing Design</h3>
-          <p>चित्रकला</p>
-        </div>
-        <span class="arrow">›</span>
-      </button>
-
-    </div>
-  </section>
-
-
-  <!-- SUBJECT PAGE -->
-  <section id="subjectPage" class="page">
-
-    <header class="page-header">
-      <button class="back-btn" onclick="goBack()">‹</button>
-
-      <div>
-        <h1 id="subjectTitle">Subject</h1>
-        <p id="subjectSubtitle">Exam-focused preparation</p>
-      </div>
-    </header>
-
-    <div class="subject-options">
-
-      <button class="feature-card" onclick="openRevision()">
-        <span>📚</span>
-        <div>
-          <h3>Chapter Revision</h3>
-          <p>Short summary + Hindi + English + Key Points</p>
-        </div>
-        <b>›</b>
-      </button>
-
-      <button class="feature-card">
-        <span>📄</span>
-        <div>
-          <h3>Previous Year Papers</h3>
-          <p>Real UP Board exam questions</p>
-        </div>
-        <b>›</b>
-      </button>
-
-      <button class="feature-card">
-        <span>📝</span>
-        <div>
-          <h3>Model Papers</h3>
-          <p>Board-style practice papers</p>
-        </div>
-        <b>›</b>
-      </button>
-
-      <button class="feature-card">
-        <span>🧪</span>
-        <div>
-          <h3>Mock Exam</h3>
-          <p>Real exam-style test with timer</p>
-        </div>
-        <b>›</b>
-      </button>
-
-      <button class="feature-card">
-        <span>❌</span>
-        <div>
-          <h3>My Mistakes</h3>
-          <p>Practice questions you got wrong</p>
-        </div>
-        <b>›</b>
-      </button>
-
-      <button class="feature-card">
-        <span>📊</span>
-        <div>
-          <h3>My Progress</h3>
-          <p>Marks, percentage and weak topics</p>
-        </div>
-        <b>›</b>
-      </button>
-
-    </div>
-  </section>
-
-
-  <!-- REVISION PAGE -->
-  <section id="revisionPage" class="page">
-
-    <header class="page-header">
-      <button class="back-btn" onclick="goBack()">‹</button>
-
-      <div>
-        <h1 id="revisionTitle">Chapter Revision</h1>
-        <p>Exam-focused chapter preparation</p>
-      </div>
-    </header>
-
-    <div id="chapterList" class="chapter-list"></div>
-
-  </section>
-
-
-  <!-- CHAPTER DETAIL -->
-  <section id="chapterPage" class="page">
-
-    <header class="page-header">
-      <button class="back-btn" onclick="goBack()">‹</button>
-
-      <div>
-        <h1 id="chapterTitle">Chapter</h1>
-        <p>Quick Revision</p>
-      </div>
-    </header>
-
-    <div class="revision-content">
-
-      <div class="revision-box">
-        <h2>🇬🇧 English Summary</h2>
-        <p id="englishSummary"></p>
-      </div>
-
-      <div class="revision-box">
-        <h2>🇮🇳 हिंदी सारांश</h2>
-        <p id="hindiSummary"></p>
-      </div>
-
-      <div class="revision-box">
-        <h2>⭐ Key Points</h2>
-        <ul id="keyPoints"></ul>
-      </div>
-
-      <div class="revision-box exam-focus">
-        <h2>🎯 Exam Focus</h2>
-        <p id="examFocus"></p>
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
